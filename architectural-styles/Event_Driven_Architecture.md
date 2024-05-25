@@ -68,21 +68,17 @@ EDA might not guarantee the order of events, which can be a problem in some syst
 
 ## When to Use Event-Driven Architecture
 
-### Cross-Account, Cross-Region Data Replication
-EDA can be used to coordinate systems between teams operating in and deploying across different regions and accounts. An event router transfers data between systems, allowing independent development, scaling, and deployment.
-
-### Resource State Monitoring and Alerting
-EDA can monitor resources and receive alerts on any anomalies, changes, and updates. This includes storage buckets, database tables, serverless functions, compute nodes, and more.
-
-### Fanout and Parallel Processing
-EDA can fanout events to multiple systems, allowing each to process the event in parallel with a different purpose without custom code to push to each consumer.
-
-### Integration of Heterogeneous Systems
-EDA allows systems running on different stacks to share information without coupling. The event router establishes indirection and interoperability among the systems, enabling them to exchange messages and data while remaining agnostic.
+1. Multiple subsystems must process the same events.
+2. Real-time processing with minimum time lag.
+3. Complex event processing, such as pattern matching or aggregation over time windows.
+4. High volume and high velocity of data, such as IoT.
 
 ## Benefits of Event-Driven Architecture
 
-### Scale and Fail Independently
+### Decoupling
+Producers and consumers are decoupled. No point-to-point integrations. It's easy to add new consumers to the system.
+
+### Highly scalable and distributed. Fail Independently
 By decoupling services, they only interact with the event router, allowing them to be scaled, updated, and deployed independently. If one service fails, the rest continue running.
 
 ### Develop with Agility
@@ -96,8 +92,11 @@ EDA is push-based, triggering events on-demand. This reduces continuous polling,
 
 ## Considerations for Using Event-Driven Architecture
 
-### Durability of Event Source
+### Guaranteed delivery
 Your event source should be reliable and guarantee delivery if you need to process every single event.
+
+### Processing events in order or exactly once
+Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or idempotent message processing logic isn't implemented.
 
 ### Performance Control Requirements
 Your application should handle the asynchronous nature of event routers.
