@@ -134,5 +134,6 @@ Asynchronous processing can make your backend nearly infinitely scalable and you
 By understanding and implementing these scalability techniques, you can ensure your web service remains performant and reliable as it grows.
 
 # Resources
+https://github.com/donnemartin/system-design-primer?tab=readme-ov-file#step-2-review-the-scalability-article
 
 https://web.archive.org/web/20221030091841/http://www.lecloud.net/tagged/scalability/chrono
