@@ -7,7 +7,7 @@ In the world of cloud computing and big data, distributed systems have become in
 To understand consistent hashing, it's essential to start with the basics of hashing.
 
 ### What is Hashing?
-Hashing is a technique that converts input data of arbitrary size into a fixed-size value, typically an integer, known as a hash code. A good hash function distributes hash codes uniformly across the output range to minimize collisions, where different inputs produce the same hash code.
+Hashing is a technique that converts input data of arbitrary size into a fixed-size value, typically an integer, known as a hash code. A good hash function distributes hash codes uniformly across the output range to minimize collisions, where different inputs might produce the same hash code.
 
 ### Introducing Hash Tables
 A hash table uses hash codes to store data efficiently. Instead of searching through a long list, we can directly access the position in the array where our data is stored using its hash code. This makes data retrieval much faster.
@@ -52,6 +52,8 @@ When a new server is added, it is mapped using the hash function and allocated t
 If a server fails, all keys previously mapped to it are redirected to the next server in the clockwise direction. This reallocation ensures that the service remains active and fault-tolerant.
 
 ![](https://cdn-images-1.medium.com/max/800/1*QFOoHHnmshI74uoYnGJOeQ.png)
+
+In general, only k/N keys need to be remapped where k is the number of keys and N is the number of servers. Rest all keys will be untouched.
 
 ## Challenges and Solutions
 ### Non-Uniform Distribution
