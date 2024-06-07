@@ -16,6 +16,8 @@ Unlike traditional relational databases that use tables, graph databases use a f
 
 In a relational database, a social media application would require a "users" table to store user data and a "connections" table to store relationships between users. Analyzing these relationships would involve JOIN operations, which can be time-consuming and resource-intensive with large datasets.
 
+![](https://ucarecdn.com/421dc1bb-08f5-443b-82a3-347cbaaac3ea/)
+
 ### Issues with Relational Databases:
 - **JOIN Operations**: Performing JOIN operations between tables can be slow and inefficient for large datasets.
 - **Rigid Schema**: Modifying the schema to add new types of relationships can be complex and time-consuming, reducing flexibility and scalability.
