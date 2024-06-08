@@ -43,6 +43,8 @@ After data transmission is complete, the connection is terminated using a four-w
 2. The receiver acknowledges the FIN with an ACK packet and then sends its own FIN packet.
 3. The sender responds with an ACK packet to acknowledge the receiver's FIN packet.
 
+![](https://www.cloudflare.com/img/learning/cdn/tls-ssl/tcp-handshake-diagram.png)
+
 ## Features of TCP
 
 - **Connection-Oriented**: A connection must be established between devices before data transfer.
