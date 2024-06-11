@@ -120,6 +120,10 @@ Stores pre-computed query results in a separate table for faster access to frequ
 
 Data normalization removes redundant data, ensuring a clean and standardized dataset. In contrast, denormalization introduces redundancy to improve read performance at the expense of write performance. While denormalization offers benefits like enhanced query performance and scalability, it also introduces challenges such as increased redundancy and maintenance complexity.
 
+# Resources
+
+https://www.splunk.com/en_us/blog/learn/data-denormalization.html
+
 ## Next Topics
 
 ### Related Topics
