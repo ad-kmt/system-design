@@ -105,6 +105,9 @@ NoSQL provides a flexible data model for handling unstructured, semi-structured,
 ## Summary
 SQL and NoSQL are distinct database technologies, each with its strengths and weaknesses. SQL is suitable for structured data and complex queries, while NoSQL offers flexibility, scalability, and support for various data types. Understanding your database requirements is crucial in choosing the appropriate technology for your project.
 
+# Resources
+https://www.splunk.com/en_us/blog/learn/sql-vs-nosql.html
+
 ## What Next?
 ### Related Topics
 - Introduction to Relational Database Management Systems (RDBMS)
