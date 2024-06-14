@@ -63,6 +63,11 @@ The application code manages the cache and database independently, the cache doe
 - On a cache miss, data is retrieved from the database and stored in the cache.
 - On a cache hit, data is served directly from the cache.
 
+#### Disadvantage(s): cache-aside
+- Each cache miss results in three trips, which can cause a noticeable delay.
+- Data can become stale if it is updated in the database. This issue is mitigated by setting a time-to-live (TTL) which forces an update of the cache entry, or by using write-through cache.
+- When a node fails, it is replaced by a new, empty node, increasing latency.
+
 ### Read-through Strategy
 The cache sits between the application code and the database:
 - On a cache miss, data is retrieved from the database, stored in the cache, and returned to the application.
@@ -78,11 +83,24 @@ So read-through strategy simplifies the application code by abstracting away the
 ## Writes
 
 ### Write-through Strategy
-Writes are first made to the cache and then to the database:
+Writes are first made to the cache and then to the database.
+
+**Process**
+- Application adds/updates entry in cache
+- Cache synchronously writes entry to data store
+- Return
+
+**Characteristics**
 - Ensures consistency between the cache and database.
 - Trade off: Increases write latency.
 
 **Use case**: Read heavy applications, with infrequent writes
+
+#### Disadvantage(s): write through
+- When a new node is created due to failure or scaling, the new node will not cache entries until the entry is updated in the database. Cache-aside in conjunction with write through can mitigate this issue.
+- Most data written might never be read, which can be minimized with a TTL.
+
+![](https://github.com/donnemartin/system-design-primer/raw/master/images/0vBc0hN.png)
 
 ### Write-around Strategy
 Writes bypass the cache and go directly to the database:
@@ -91,12 +109,16 @@ Writes bypass the cache and go directly to the database:
 
 **Use case**: Write heavy applications, infrequent reads.
 
-### Write-back Strategy
+### Write-back (or Write-behind) Strategy
 Writes are temporarily stored in the cache and then asynchronously written to the database:
 - Improves write performance. Lower write latency and higher write throughput.
-- Tradeoff: Carries the risk of data loss if the cache layer fails.
+- Tradeoff:
+	- Carries the risk of data loss if the cache layer fails.
+	- It is more complex to implement write-behind than it is to implement cache-aside or write-through.
 
 **Use case**: Write heavy applications.
+
+![](https://github.com/donnemartin/system-design-primer/raw/master/images/rgSrvjG.png)
 
 ## Cache Eviction Policies
 When the cache is full, some data needs to be removed to make room for new data. Common policies include:
@@ -143,7 +165,7 @@ Uses multiple caching servers spread across a network to scale beyond the memory
 - **Offline Access:** Allows access to data even when the network connection is unreliable or offline.
 
 ## Disadvantages and Limitations of Caching
-- **Data Inconsistency:** Cached data can become outdated.
+- **Data Inconsistency:** Need to maintain consistency between caches and the source of truth such as the database through cache invalidation.
 - **Cache Misses:** Introduce latency.
 - **Initial Cache Warm-up:** Can cause temporary performance degradation.
 - **Limited Write Performance:** Most caching strategies do not improve write performance.
