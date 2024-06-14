@@ -59,7 +59,7 @@ Otherwise, the application will serve outdated or stale data. So, we use cache i
 ## Reads
 
 ### Cache-aside Strategy
-The application code manages the cache and database independently:
+The application code manages the cache and database independently, the cache does not interact with storage directly. 
 - On a cache miss, data is retrieved from the database and stored in the cache.
 - On a cache hit, data is served directly from the cache.
 
