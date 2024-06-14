@@ -15,9 +15,10 @@ When a user requests data, the system first checks the cache:
 
 ![](https://cdn-images-1.medium.com/max/1080/1*KNlUFMg72Ziy4QbbPpOwcw.png)
 ## Real-Life Examples of Caching
-- **Web Browsers:** Store frequently accessed HTML, CSS, JavaScript, and images.
+- **Web Browsers (Client side caching):** Store frequently accessed HTML, CSS, JavaScript, and images.
 - **Content Delivery Networks (CDNs):** Store static files like images and videos closer to the user.
 - **DNS Caching:** Stores the IP address of a domain name for faster retrieval.
+- **Web server caching**: Reverse proxies can serve static and dynamic content directly. Web servers can also cache requests, returning responses without having to contact application servers.
 
 ## Types of Caching Strategies
 
