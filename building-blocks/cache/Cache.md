@@ -1,7 +1,7 @@
 # Introduction to Caching and Caching Strategies
 
 ## What is Caching?
-Caching is the process of storing frequently accessed data in a temporary storage called a cache to improve the speed of data access.
+Caching is the process of storing frequently accessed data in a temporary high speed storage called a cache to improve the speed of data access.
 
 ## What is a Cache?
 A cache is a **high-speed storage** that stores a small proportion of critical data so that requests for that data can be served faster.
