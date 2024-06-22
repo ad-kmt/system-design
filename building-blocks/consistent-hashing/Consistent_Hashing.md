@@ -55,6 +55,8 @@ If a server fails, all keys previously mapped to it are redirected to the next s
 
 In general, only k/N keys need to be remapped where k is the number of keys and N is the number of servers. Rest all keys will be untouched.
 
+In our original naive hashing model, it costs us O(k) every time we need to add or remove a node, but inserting or removing a key is O(1). In our consistent hashing model, we can change the number of nodes with only O(k/N + log N) runtime; however, inserting or looking up a cache key will now take O(log N) instead of O(1) because we have to do a binary search to find the next node on the hash ring.
+
 ## Challenges and Solutions
 ### Non-Uniform Distribution
 A potential issue with consistent hashing is that all keys might get mapped to the same server, leading to an uneven load. This can be mitigated by replicating servers and distributing these replicas around the hash ring to ensure a more uniform key distribution.
