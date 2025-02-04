@@ -11,11 +11,19 @@
 
 ## Why Do We Need Rate Limiting?
 Rate limiting prevents overuse or abuse of APIs by controlling how often a user or system can make requests. It is essential for:
-- **Preventing API Misuse**: Protects against excessive API calls from bots or abusive users.
-- **Monetization**: Allows free-tier users limited API access and encourages them to upgrade.
-- **Quality of Service (QoS)**: Ensures fair resource distribution among users.
+
+#### Major
+- **Prevents Denial of Service (DoS) Attacks**: intentional (bots or abusive users) or unintenional, by blocking excess calls.
 - **Security**: Prevents brute-force attacks on login endpoints or promo code abuse.
+
+#### Minor
+- **Quality of Service or UX**: Ensures fair resource distribution among users.
+- **Monetization**: Allows free-tier users limited API access and encourages them to upgrade.
 - **Operational Cost Control**: Avoids unnecessary auto-scaling or excessive Pay-As-You-Go charges.
+
+## Requirements Clarification Questions
+
+
 
 ## Types of Rate Limiting
 Rate limiting can be applied at different levels:
