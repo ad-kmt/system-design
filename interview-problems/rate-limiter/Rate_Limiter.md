@@ -16,7 +16,7 @@ Rate limiting prevents overuse or abuse of APIs by controlling how often a user 
 - **Prevents Denial of Service (DoS) Attacks**: intentional (bots or abusive users) or unintenional, by blocking excess calls.
 - **Security**: Prevents brute-force attacks on login endpoints or promo code abuse.
 
-#### Minor
+#### Additional
 - **Quality of Service or UX**: Ensures fair resource distribution among users.
 - **Monetization**: Allows free-tier users limited API access and encourages them to upgrade.
 - **Operational Cost Control**: Avoids unnecessary auto-scaling or excessive Pay-As-You-Go charges.
