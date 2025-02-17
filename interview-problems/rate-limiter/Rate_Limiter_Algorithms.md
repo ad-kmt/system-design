@@ -99,7 +99,9 @@ The **Fixed Window Counter** algorithm is a simple rate-limiting technique that 
 ### Example
 - Suppose the system allows **3 requests per second**.
 - If more than 3 requests arrive within the same second, the excess requests are **discarded**.
-- A visualization of this behavior is shown in **Figure 4-8**.
+- A visualization of this behavior is shown in below figure.
+
+![image](https://github.com/user-attachments/assets/2ce1a3f6-3c48-4c58-8fd1-5eec966b9343)
 
 ### Edge Case: Traffic Burst at Window Boundaries
 A limitation of this approach is that traffic spikes **at the edges of time windows** can allow **more requests than the quota**.  
@@ -107,6 +109,8 @@ For instance:
 - A system allows **5 requests per minute**.
 - The quota resets at each full minute (e.g., 2:00:00, 2:01:00).
 - If **5 requests are made at 2:00:59 and another 5 at 2:01:01**, a total of **10 requests** go through in a span of one minute, **exceeding the allowed limit**.
+
+![image](https://github.com/user-attachments/assets/071fb0b8-5c68-428d-9bd3-de6158b7b207)
 
 ### Pros & Cons
 
