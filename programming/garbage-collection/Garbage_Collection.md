@@ -26,7 +26,7 @@ Garbage Collection (GC) is an automatic memory management technique that reclaim
   - Any object that is connected to a GC root through a chain of references is marked as reachable (alive).
   - Objects that are not reached during this traversal are deemed unreachable and considered garbage, making them eligible for collection.
 
-
+![image](https://github.com/user-attachments/assets/1a08bb0b-0545-48c5-b4a7-758ca7e73f82)
 
 ## 3. Generational Garbage Collection
 
@@ -42,6 +42,9 @@ Garbage Collection (GC) is an automatic memory management technique that reclaim
 - **Old Generation:** For objects that persist longer; collections occur less frequently but are more comprehensive.
 - **Metaspace (Java-specific):** Stores class metadata to reduce memory footprint in large applications.
 
+![image](https://github.com/user-attachments/assets/33aafad0-30dd-4e19-8cf3-a061f55c7077)
+
+
 ### 3.3 Language Variations
 - **Java:** Typically divides memory into Young, Old, and Metaspace.
 - **V8 (JavaScript Engine):** Uses a two-generation system.
@@ -55,6 +58,8 @@ Garbage Collection (GC) is an automatic memory management technique that reclaim
 - **Mark Phase:** Traverses all objects starting from the GC roots and marks the reachable objects.
 - **Sweep Phase:** Reclaims memory occupied by unmarked (unreachable) objects.
 - **Stop-the-World Pause:** The entire application is paused during the GC process, which can be disruptive especially with large heaps.
+
+![image](https://github.com/user-attachments/assets/1627c231-ef24-4d58-856e-0c4b76e6ca33)
 
 ### 4.2 Tri-Color Marking (Incremental Approach)
 - **Three Sets:**
